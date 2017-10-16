@@ -166,7 +166,11 @@ class ArcStreamHandler(logging.StreamHandler):
         """
 
         msg = self.format(record)
-        msg = msg.replace("\n", ", ").replace("\t", " ").replace("  ", " ").encode("ascii")
+        msg = msg.replace("\n", ", ")
+        msg = msg.replace("\t", " ")
+        msg = msg.replace("  ", " ")
+        msg = msg.encode("ascii")
+
         lvl = record.levelno
 
         if lvl in [logging.ERROR, logging.CRITICAL]:

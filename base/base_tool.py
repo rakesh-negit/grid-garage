@@ -559,13 +559,13 @@ class BaseTool(object):
         field_name = [self.get_parameter(field_name).valueAsText for field_name in field_alias]  # values
         field_map = {k: v for k, v in OrderedDict(zip(field_alias, field_name)).iteritems() if v not in [None, "NONE"]}  # dict
 
-        self.info("nk = ", nonkey_names)
+        # self.info("nk = ", nonkey_names)
 
         if nonkey_names:  # we want hard-wired fields to be included in the row
             field_map.update(OrderedDict([(v, v) for v in nonkey_names]))  # nonkey_names is a list at the mo
 
-        self.info("fm = ", field_map)
-        self.info("fmv = ", field_map.values())
+        # self.info("fm = ", field_map)
+        # self.info("fmv = ", field_map.values())
 
         rows = [r for r in arcpy.da.SearchCursor(param.name, field_map.values())]
 
